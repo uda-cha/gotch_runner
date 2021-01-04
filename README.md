@@ -6,7 +6,14 @@ If batch failed, then `gotch_runner` reports it via email.
 
 ## Installation
 
-TBD
+Executable binaries are available at [releases](https://github.com/uda-cha/gotch_runner/releases).
+
+For example, for linux x86_64,
+
+```sh
+$ wget https://github.com/uda-cha/gotch_runner/releases/download/v0.0.1-rc.1/gotch_runner_linux_amd64 -O gotch_runner
+$ chmod a+x gotch_runner
+```
 
 ## Usage
 
