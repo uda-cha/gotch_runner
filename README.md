@@ -31,7 +31,7 @@ MAIL_PORT=587
 ### run any commands you like with `gotch_runner`
 
 ```sh
-gotch_runner /some/batch.sh --your_args=1
+gotch_runner /some/batch.sh your_args1 --your_args2=hoge
 ```
 
 First argument of `gotch_runner` must be executables.

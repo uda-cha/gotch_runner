@@ -12,7 +12,7 @@ import (
 )
 
 func print_usage() {
-  fmt.Println("USAGE: ./gotch_runner somecommand somearg1 somearg2")
+  fmt.Println("USAGE: ./gotch_runner somecommand somearg1 --somearg2")
 }
 
 type MailConfig struct {
@@ -29,7 +29,9 @@ type MailConfig struct {
 func try_to_get_env(key string) (val string) {
   val, ret := os.LookupEnv(key)
   if ret == false {
-    fmt.Println("Environment Variable " + key + " is not set.")
+    envs := []string{"MAIL_FROM", "MAIL_TO", "MAIL_USERNAME", "MAIL_PASSWORD", "MAIL_HOST", "MAIL_PORT"}
+    fmt.Println("Environment Variable " + key + " is not set. You must set:")
+    fmt.Printf(strings.Join(envs, "\n") + "\n")
     os.Exit(2)
   }
 
@@ -91,7 +93,7 @@ func main() {
   stdoutStderr, status := exec_command(cmd, args)
   
   if len(stdoutStderr) > 0 {
-    fmt.Println(stdoutStderr)
+    fmt.Print(stdoutStderr)
   }
 
   if status > 0 {
